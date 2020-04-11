@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:id="@+id/cardView">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:id="@+id/ly1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="name"
+            android:textSize="18dp"
+            android:id="@+id/name"
+            android:layout_margin="10dp"
+
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@color/colorPrimaryDark"
+            android:scaleType="fitXY"
+            android:id="@+id/img"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+
+                android:textColor="@android:color/black"
+                android:text="Preparation time:"
+                android:textSize="13dp"
+                android:layout_margin="10dp"
+
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:id="@+id/timetxt"
+                android:textSize="13dp"
+                android:textColor="@android:color/black"
+                android:text="Preparation time:"
+
+                android:layout_margin="10dp"
+
+                android:textStyle="bold"/>
+            <ImageView
+
+                android:paddingTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/drugs1"
+
+                android:layout_width="50dp"
+                android:layout_height="50dp"></ImageView>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+
+            android:textColor="@android:color/black"
+            android:text="Ingredients :"
+            android:layout_gravity="center_horizontal"
+            android:gravity="left"
+            android:layout_margin="10dp"
+
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/IngredientsData"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Ingredients :"
+            android:layout_gravity="center_horizontal"
+            android:gravity="left"
+            android:layout_margin="10dp"
+
+            android:textStyle="bold"/>
+    </LinearLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>
+
+
+
