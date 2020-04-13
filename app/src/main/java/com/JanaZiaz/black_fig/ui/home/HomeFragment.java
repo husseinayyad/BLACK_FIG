@@ -56,6 +56,8 @@ public class HomeFragment extends Fragment {
      @Override
      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
          if (dataSnapshot.exists()){
+             name.clear();
+             img.clear();
 
 
              for (DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){

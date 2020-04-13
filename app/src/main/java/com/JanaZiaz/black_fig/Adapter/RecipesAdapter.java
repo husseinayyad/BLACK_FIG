@@ -26,18 +26,21 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     private List<String> name;
     private List<String> id;
     private List<String> img;
-
+String namebysearch ;
+int count ;
     private List<String> time;
 
     private List<String> Ingredients;
-    public RecipesAdapter(Context context, RecipesActivity activity, List<String > name, List<String > img, List<String > id,List<String > time,List<String > Ingredients) {
+    public RecipesAdapter(Context context, RecipesActivity activity, List<String > name, List<String > img, List<String > id,List<String > time,List<String > Ingredients,String namebysearch) {
         this.context = context;
         this.name = name;
         this.img=img;
         this.id=id;
         this.time=time;
+        this.namebysearch=namebysearch;
         this.Ingredients=Ingredients;
         this.activity=activity ;
+        count=name.size();
     }
     @NonNull
     @Override
@@ -50,25 +53,27 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-holder.textView.setText(name.get(position));
-        Picasso.get().load(img.get(position)).placeholder(R.drawable.ic_launcher_background).into(holder.imageView);
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent(context.getApplicationContext(), RecipesdetailsActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("name",name.get(position));
-                intent.putExtra("img",img.get(position));
-                intent.putExtra("time",time.get(position));
-                intent.putExtra("Ingredients",Ingredients.get(position));
-                context.startActivity(intent);
-            }
-        });
-    }
+    holder.textView.setText(name.get(position));
+    Picasso.get().load(img.get(position)).placeholder(R.drawable.ic_launcher_background).into(holder.imageView);
+    holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent  = new Intent(context.getApplicationContext(), RecipesdetailsActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("name",name.get(position));
+            intent.putExtra("img",img.get(position));
+            intent.putExtra("time",time.get(position));
+            intent.putExtra("Ingredients",Ingredients.get(position));
+            context.startActivity(intent);
+        }
+    });
+}
+
+
 
     @Override
     public int getItemCount() {
-        return name.size();
+        return count;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecipesdetailsActivity"></activity>
+        <activity android:name=".AddCommentActivity"></activity>
+        <activity android:name=".RecipesdetailsActivity" />
         <activity android:name=".AddRecipesActivity" />
         <activity android:name=".AddCategoryActivity" />
         <activity android:name=".AdminPageActivity" />

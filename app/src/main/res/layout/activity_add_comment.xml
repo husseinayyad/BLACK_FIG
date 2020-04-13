@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+
+    tools:context=".AddCategoryActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Add Your Feedback"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30dp"
+                android:layout_height="wrap_content"></TextView>
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_gravity="center_horizontal"
+
+                android:id="@+id/imgcatg"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/addimage"
+                android:layout_height="100dp"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:padding="10dp"
+                android:text="Enter Your Name"
+                android:layout_marginTop="40dp"
+                android:gravity="left"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/name"
+                android:layout_gravity="center_horizontal"
+                android:hint="Name"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"></EditText>
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:padding="10dp"
+                android:text="Enter Your Comment"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22dp"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/categoryname"
+                android:layout_gravity="center_horizontal"
+                android:hint="Comment"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"></EditText>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Add"
+                android:id="@+id/btnAddCatg"
+
+                android:textSize="19dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/circularbordersolid"
+                android:layout_height="wrap_content"></Button>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
