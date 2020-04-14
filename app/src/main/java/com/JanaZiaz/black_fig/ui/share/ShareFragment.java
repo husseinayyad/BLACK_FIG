@@ -1,9 +1,11 @@
 package com.JanaZiaz.black_fig.ui.share;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -23,11 +25,32 @@ public class ShareFragment extends Fragment {
         shareViewModel =
                 ViewModelProviders.of(this).get(ShareViewModel.class);
         View root = inflater.inflate(R.layout.fragment_share, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+       Button share=root.findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+
+
+              /* String text = Ingredientstxt;
+                Uri pictureUri = Uri.parse(img);
+
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+               shareIntent.putExtra(Intent.EXTRA_STREAM, );
+                shareIntent.setType("image/*");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(shareIntent, "Share Recipes..."));
+*/
+                Intent shareIntent;
+
+                shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //shareIntent.putExtra(Intent.EXTRA_TEXT,img);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,"Hey please check this application " + "https://play.google.com/store/apps/details?id=" +getActivity().getPackageName());
+                shareIntent.setType("text/*");
+                startActivity(Intent.createChooser(shareIntent,"Share with"));
+
             }
         });
         return root;
