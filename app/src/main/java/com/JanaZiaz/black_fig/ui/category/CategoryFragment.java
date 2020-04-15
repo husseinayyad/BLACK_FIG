@@ -1,17 +1,13 @@
-package com.JanaZiaz.black_fig.ui.home;
+package com.JanaZiaz.black_fig.ui.category;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.JanaZiaz.black_fig.Adapter.CategoryAdapter;
-import com.JanaZiaz.black_fig.HomeActivity;
 import com.JanaZiaz.black_fig.Model.Category;
 import com.JanaZiaz.black_fig.R;
 import com.google.firebase.database.DataSnapshot;
@@ -31,11 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
+public class CategoryFragment extends Fragment {
 
-public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
+    private CategoryViewModel categoryViewModel;
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     Context context ;
@@ -47,9 +40,9 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        categoryViewModel =
+                ViewModelProviders.of(this).get(CategoryViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_category, container, false);
         recyclerView=root.findViewById(R.id.recyclerViewCatg);
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("category");
  mDatabase.addValueEventListener(new ValueEventListener() {
@@ -68,7 +61,7 @@ public class HomeFragment extends Fragment {
              img.add(category.getImage());
 
        }}
-         adapter = new CategoryAdapter(getActivity().getApplicationContext(), HomeFragment.this,name,img);
+         adapter = new CategoryAdapter(getActivity().getApplicationContext(), CategoryFragment.this,name,img);
 
          linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 

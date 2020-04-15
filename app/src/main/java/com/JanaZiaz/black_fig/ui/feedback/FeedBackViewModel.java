@@ -1,16 +1,16 @@
-package com.JanaZiaz.black_fig.ui.home;
+package com.JanaZiaz.black_fig.ui.feedback;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class FeedBackViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public FeedBackViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is send fragment");
     }
 
     public LiveData<String> getText() {

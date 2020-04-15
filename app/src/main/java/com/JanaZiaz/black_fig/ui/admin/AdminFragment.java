@@ -1,4 +1,4 @@
-package com.JanaZiaz.black_fig.ui.gallery;
+package com.JanaZiaz.black_fig.ui.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,30 +8,27 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.JanaZiaz.black_fig.AdminPageActivity;
 import com.JanaZiaz.black_fig.R;
 
-public class GalleryFragment extends Fragment {
+public class AdminFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private AdminViewModel adminViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        adminViewModel =
+                ViewModelProviders.of(this).get(AdminViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_admin, container, false);
         final EditText editText1 = root.findViewById(R.id.edit_text1);
         final EditText editText2 = root.findViewById(R.id.edit_text2);
         final EditText editText3 = root.findViewById(R.id.edit_text3);

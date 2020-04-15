@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.JanaZiaz.black_fig.R;
 import com.JanaZiaz.black_fig.RecipesActivity;
 import com.JanaZiaz.black_fig.RecipesdetailsActivity;
-import com.JanaZiaz.black_fig.ui.home.HomeFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

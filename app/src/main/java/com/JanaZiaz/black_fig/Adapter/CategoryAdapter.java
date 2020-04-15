@@ -14,18 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.JanaZiaz.black_fig.R;
 import com.JanaZiaz.black_fig.RecipesActivity;
-import com.JanaZiaz.black_fig.ui.home.HomeFragment;
+import com.JanaZiaz.black_fig.ui.category.CategoryFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
-    HomeFragment activity;
+    CategoryFragment activity;
     private Context context;
     private List<String> name;
 
     private List<String> img;
-    public CategoryAdapter(Context context, HomeFragment activity, List<String > name, List<String > img) {
+    public CategoryAdapter(Context context, CategoryFragment activity, List<String > name, List<String > img) {
         this.context = context;
         this.name = name;
         this.img=img;

@@ -1,4 +1,4 @@
-package com.JanaZiaz.black_fig.ui.send;
+package com.JanaZiaz.black_fig.ui.feedback;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,9 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SendFragment extends Fragment {
+public class FeedBackFragment extends Fragment {
 
-    private SendViewModel sendViewModel;
+    private FeedBackViewModel feedBackViewModel;
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     Context context ;
@@ -46,9 +46,9 @@ public class SendFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sendViewModel =
-                ViewModelProviders.of(this).get(SendViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
+        feedBackViewModel =
+                ViewModelProviders.of(this).get(FeedBackViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_feedback, container, false);
         final Button button = root.findViewById(R.id.addfeedback);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

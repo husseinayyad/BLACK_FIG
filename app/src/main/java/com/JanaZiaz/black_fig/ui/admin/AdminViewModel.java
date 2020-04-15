@@ -1,16 +1,16 @@
-package com.JanaZiaz.black_fig.ui.slideshow;
+package com.JanaZiaz.black_fig.ui.admin;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class AdminViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public AdminViewModel() {
         mText = new MutableLiveData<>();
-
+        mText.setValue("This is gallery fragment");
     }
 
     public LiveData<String> getText() {

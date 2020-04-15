@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="filter Search"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:textSize="19dp"
+        android:textColor="@android:color/white"
+        android:text="Search By Name"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:id="@+id/byname"
+        android:gravity="center_horizontal"
+        android:background="@drawable/circularbordersolid"
+        android:padding="10dp"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:textSize="19dp"
+        android:textColor="@android:color/white"
+        android:text="Search By Ingredients"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/circularbordersolid"
+        android:id="@+id/bying"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:layout_height="wrap_content"></TextView>
+
+</LinearLayout>

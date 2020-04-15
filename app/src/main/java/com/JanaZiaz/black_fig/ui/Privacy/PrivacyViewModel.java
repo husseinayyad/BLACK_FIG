@@ -1,16 +1,16 @@
-package com.JanaZiaz.black_fig.ui.send;
+package com.JanaZiaz.black_fig.ui.Privacy;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class PrivacyViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public PrivacyViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+
     }
 
     public LiveData<String> getText() {

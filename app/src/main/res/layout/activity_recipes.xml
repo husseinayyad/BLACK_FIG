@@ -8,14 +8,25 @@
     tools:context=".RecipesActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.appcompat.widget.SearchView
-            android:layout_width="match_parent"
-            app:queryHint="By Name"
-            android:id="@+id/search"
-            android:layout_height="match_parent">
 
-        </androidx.appcompat.widget.SearchView>
+        android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="55dp"
+                android:id="@+id/imgfilter"
+                android:src="@drawable/filter"
+                android:layout_height="35dp"></ImageView>
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="match_parent"
+                app:queryHint="By Name"
+                android:id="@+id/search"
+
+                android:layout_height="match_parent">
+
+            </androidx.appcompat.widget.SearchView>
+
+
 
     </androidx.appcompat.widget.Toolbar>
 <androidx.recyclerview.widget.RecyclerView
