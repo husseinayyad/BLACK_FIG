@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.JanaZiaz.black_fig.R;
 
+import static com.JanaZiaz.black_fig.ui.category.CategoryFragment.home;
+
 public class PrivacyFragment extends Fragment {
 
     private PrivacyViewModel privacyViewModel;
@@ -22,7 +24,7 @@ public class PrivacyFragment extends Fragment {
                 ViewModelProviders.of(this).get(PrivacyViewModel.class);
         View root = inflater.inflate(R.layout.fragment_privacy, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-
+        home=false;
         return root;
     }
 }

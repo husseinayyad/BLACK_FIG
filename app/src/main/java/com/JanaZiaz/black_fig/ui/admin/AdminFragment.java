@@ -20,6 +20,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.JanaZiaz.black_fig.AdminPageActivity;
 import com.JanaZiaz.black_fig.R;
 
+import static com.JanaZiaz.black_fig.ui.category.CategoryFragment.home;
+
 public class AdminFragment extends Fragment {
 
     private AdminViewModel adminViewModel;
@@ -29,6 +31,7 @@ public class AdminFragment extends Fragment {
         adminViewModel =
                 ViewModelProviders.of(this).get(AdminViewModel.class);
         View root = inflater.inflate(R.layout.fragment_admin, container, false);
+        home=false;
         final EditText editText1 = root.findViewById(R.id.edit_text1);
         final EditText editText2 = root.findViewById(R.id.edit_text2);
         final EditText editText3 = root.findViewById(R.id.edit_text3);
@@ -119,7 +122,18 @@ public class AdminFragment extends Fragment {
                 else if (editText1.getText().toString().equals("0")&&
                         editText2.getText().toString().equals("0")
                         &&editText3.getText().toString().equals("0")&&editText4.getText().toString().equals("0")){
-                    startActivity(new Intent(getActivity(), AdminPageActivity.class));
+                    //startActivity(new Intent(getActivity(), AdminPageActivity.class));
+                    Intent intent = new Intent(getActivity(),AdminPageActivity.class);
+                    intent.putExtra("admin","0");
+                    startActivity(intent);
+                }
+                else if (editText1.getText().toString().equals("1")&&
+                        editText2.getText().toString().equals("1")
+                        &&editText3.getText().toString().equals("1")&&editText4.getText().toString().equals("1")){
+                    //startActivity(new Intent(getActivity(), AdminPageActivity.class));
+                    Intent intent = new Intent(getActivity(),AdminPageActivity.class);
+                    intent.putExtra("admin","1");
+                    startActivity(intent);
                 }
                 else {
                     Toast.makeText(getActivity(), "Invalid Code", Toast.LENGTH_LONG).show();

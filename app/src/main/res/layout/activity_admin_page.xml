@@ -28,7 +28,7 @@ android:orientation="vertical"
             <ImageView
                 android:layout_width="200dp"
                 android:src="@mipmap/ic_launcher_foreground"
-
+android:id="@+id/adminimage"
 
                 android:layout_gravity="center_horizontal"
                 android:layout_height="120dp"></ImageView>
@@ -41,7 +41,7 @@ android:orientation="vertical"
         android:text="Admin :Jana Ziad"
         android:padding="10dp"
 android:layout_marginBottom="10dp"
-
+android:id="@+id/adminname"
         android:layout_gravity="center_horizontal"
 android:textStyle="bold"
         android:textColor="@android:color/white"

@@ -11,12 +11,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.JanaZiaz.black_fig.R;
 
+import static com.JanaZiaz.black_fig.ui.category.CategoryFragment.home;
+
 public class TermsFragment extends Fragment {
 
     private TermsModel termsModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        home=false;
         termsModel =
                 ViewModelProviders.of(this).get(TermsModel.class);
         View root = inflater.inflate(R.layout.fragment_terms, container, false);

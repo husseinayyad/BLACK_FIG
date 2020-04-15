@@ -29,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.JanaZiaz.black_fig.ui.category.CategoryFragment.home;
+
 public class FeedBackFragment extends Fragment {
 
     private FeedBackViewModel feedBackViewModel;
@@ -49,6 +51,7 @@ public class FeedBackFragment extends Fragment {
         feedBackViewModel =
                 ViewModelProviders.of(this).get(FeedBackViewModel.class);
         View root = inflater.inflate(R.layout.fragment_feedback, container, false);
+        home=false;
         final Button button = root.findViewById(R.id.addfeedback);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

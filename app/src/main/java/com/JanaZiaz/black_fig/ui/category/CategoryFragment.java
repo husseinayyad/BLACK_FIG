@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -37,6 +38,8 @@ public class CategoryFragment extends Fragment {
     private List<String> img=new ArrayList<>();
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
+    RelativeLayout nodata ;
+   public static  boolean home=false;
 
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +47,8 @@ public class CategoryFragment extends Fragment {
                 ViewModelProviders.of(this).get(CategoryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_category, container, false);
         recyclerView=root.findViewById(R.id.recyclerViewCatg);
+        home=true;
+        nodata=root.findViewById(R.id.nodatafound);
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("category");
  mDatabase.addValueEventListener(new ValueEventListener() {
      @Override
@@ -60,23 +65,29 @@ public class CategoryFragment extends Fragment {
              name.add(category.getName());
              img.add(category.getImage());
 
-       }}
-         adapter = new CategoryAdapter(getActivity().getApplicationContext(), CategoryFragment.this,name,img);
+       }
 
-         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+             adapter = new CategoryAdapter(getActivity().getApplicationContext(), CategoryFragment.this,name,img);
+
+             linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 
 
-         dividerItemDecoration = new DividerItemDecoration(getActivity().getApplicationContext(), linearLayoutManager.getOrientation());
+             dividerItemDecoration = new DividerItemDecoration(getActivity().getApplicationContext(), linearLayoutManager.getOrientation());
 
-         recyclerView.setHasFixedSize(true);
-         recyclerView .setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
-         recyclerView.addItemDecoration(dividerItemDecoration);
-         recyclerView.setAdapter(adapter);
+             recyclerView.setHasFixedSize(true);
+             recyclerView .setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 2));
+             recyclerView.addItemDecoration(dividerItemDecoration);
+             recyclerView.setAdapter(adapter);
+         }
+         else {
+             nodata.setVisibility(View.VISIBLE);
+         }
+
      }
 
      @Override
      public void onCancelled(@NonNull DatabaseError databaseError) {
-
+nodata.setVisibility(View.VISIBLE);
      }
  });
  /*name.add(0,"breakfast");
@@ -94,4 +105,5 @@ public class CategoryFragment extends Fragment {
 
         return root;
     }
+
 }

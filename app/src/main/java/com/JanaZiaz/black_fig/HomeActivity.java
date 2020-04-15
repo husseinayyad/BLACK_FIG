@@ -1,5 +1,6 @@
 package com.JanaZiaz.black_fig;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import com.JanaZiaz.black_fig.Adapter.CategoryAdapter;
@@ -31,6 +32,8 @@ import android.view.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.JanaZiaz.black_fig.ui.category.CategoryFragment.home;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -73,12 +76,12 @@ fab.setVisibility(View.GONE);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -86,4 +89,18 @@ fab.setVisibility(View.GONE);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public void onBackPressed() {
+
+        if (home){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            finishAffinity();
+        }
+    }
+    else {
+            super.onBackPressed();
+        }
+    }
+
 }

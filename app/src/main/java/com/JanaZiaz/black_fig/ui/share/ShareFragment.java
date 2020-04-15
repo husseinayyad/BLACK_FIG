@@ -16,6 +16,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.JanaZiaz.black_fig.R;
 
+import static com.JanaZiaz.black_fig.ui.category.CategoryFragment.home;
+
 public class ShareFragment extends Fragment {
 
     private ShareViewModel shareViewModel;
@@ -26,6 +28,7 @@ public class ShareFragment extends Fragment {
                 ViewModelProviders.of(this).get(ShareViewModel.class);
         View root = inflater.inflate(R.layout.fragment_share, container, false);
        Button share=root.findViewById(R.id.share);
+        home=false;
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

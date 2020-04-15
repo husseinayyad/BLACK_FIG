@@ -12,6 +12,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.JanaZiaz.black_fig.Adapter.RecipesAdapter;
@@ -42,7 +43,9 @@ ImageView imageView;
     SearchView searchView ;
     boolean isbyname =true;
     boolean isbying =false;
+    RelativeLayout nodata;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
@@ -50,6 +53,7 @@ ImageView imageView;
         final String id = getIntent().getStringExtra("id");
         searchView= findViewById(R.id.search);
         imageView=findViewById(R.id.imgfilter);
+        nodata=findViewById(R.id.nodatafound);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,13 +192,16 @@ bying.setOnClickListener(new View.OnClickListener() {
                                 }
                             }
                         }
+                        else {
+                            nodata.setVisibility(View.VISIBLE);
+                        }
 
 
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        nodata.setVisibility(View.VISIBLE);
                     }
                 });}
                 else {
@@ -232,12 +239,15 @@ bying.setOnClickListener(new View.OnClickListener() {
                                 recyclerView .setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
                                 recyclerView.addItemDecoration(dividerItemDecoration);
                                 recyclerView.setAdapter(adapter);}
+                            else {
+                                nodata.setVisibility(View.VISIBLE);
+                            }
 
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                            nodata.setVisibility(View.VISIBLE);
                         }
                     });
 
@@ -279,12 +289,15 @@ bying.setOnClickListener(new View.OnClickListener() {
                     recyclerView .setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
                     recyclerView.addItemDecoration(dividerItemDecoration);
                     recyclerView.setAdapter(adapter);}
+                else {
+                    nodata.setVisibility(View.VISIBLE);
+                }
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                nodata.setVisibility(View.VISIBLE);
             }
         });
 
