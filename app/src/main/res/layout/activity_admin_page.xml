@@ -26,12 +26,12 @@ android:orientation="vertical"
 
 
             <ImageView
-                android:layout_width="200dp"
+                android:layout_width="100dp"
                 android:src="@mipmap/ic_launcher_foreground"
 android:id="@+id/adminimage"
 
                 android:layout_gravity="center_horizontal"
-                android:layout_height="120dp"></ImageView>
+                android:layout_height="70dp"></ImageView>
 
 
 
@@ -45,15 +45,15 @@ android:id="@+id/adminname"
         android:layout_gravity="center_horizontal"
 android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:textSize="22dp"
+        android:textSize="18dp"
         android:layout_height="wrap_content"></TextView>
 </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:background="@drawable/circularbordersolid"
-      android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="80dp"
+      android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="60dp"
         android:textColor="@android:color/white"
         android:text="Add Category"
         android:textAllCaps="false"
@@ -62,11 +62,21 @@ android:textStyle="bold"
     <Button
         android:layout_width="match_parent"
         android:background="@drawable/circularbordersolid"
-        android:layout_margin="30dp"
+android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:textColor="@android:color/white"
         android:text="Add Recipes"
         android:id="@+id/btnrecipe"
         android:textAllCaps="false"
         android:layout_height="wrap_content"></Button>
-
+    <Button
+        android:layout_width="match_parent"
+        android:background="@drawable/circularbordersolid"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        android:text="Management"
+        android:id="@+id/btnmang"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content"></Button>
 </LinearLayout>

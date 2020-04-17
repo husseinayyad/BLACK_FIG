@@ -23,12 +23,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     CategoryFragment activity;
     private Context context;
     private List<String> name;
-
+    private List<String> key;
     private List<String> img;
-    public CategoryAdapter(Context context, CategoryFragment activity, List<String > name, List<String > img) {
+    public CategoryAdapter(Context context, CategoryFragment activity, List<String> name, List<String> img, List<String> key) {
         this.context = context;
         this.name = name;
         this.img=img;
+        this.key=key;
         this.activity=activity ;
     }
     @NonNull
@@ -48,7 +49,7 @@ holder.textView.setText(name.get(position));
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent(context.getApplicationContext(), RecipesActivity.class);
-                intent.putExtra("id",name.get(position));
+                intent.putExtra("id",key.get(position));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

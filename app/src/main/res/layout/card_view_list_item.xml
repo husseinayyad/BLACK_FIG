@@ -15,7 +15,7 @@
         android:layout_margin="10dp">
 
         <ImageView
-            android:layout_width="230dp"
+            android:layout_width="250dp"
             android:layout_height="150dp"
             android:src="@color/colorPrimaryDark"
             android:id="@+id/cardViewImageView"
@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cardViewTextView"
             android:text="exm"
+            android:layout_margin="5dp"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorPrimaryDark"
             android:gravity="center_horizontal"/>

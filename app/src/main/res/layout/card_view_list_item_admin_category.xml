@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:id="@+id/cardView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:id="@+id/ly1"
+        android:layout_margin="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/edit"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/edit"
+                android:layout_height="50dp"></ImageView>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_alignParentRight="true"
+                android:padding="5dp"
+                android:id="@+id/remove"
+                android:scaleType="fitXY"
+                android:src="@drawable/remove"
+                android:layout_height="50dp"></ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:id="@+id/cardViewTextView"
+                android:textSize="13dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="EX"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@color/colorPrimaryDark"
+            android:scaleType="fitXY"
+            android:id="@+id/cardViewImageView"/>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+
+

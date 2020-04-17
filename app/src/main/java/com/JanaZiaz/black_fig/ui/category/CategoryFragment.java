@@ -36,6 +36,8 @@ public class CategoryFragment extends Fragment {
     private List<String> name=new ArrayList<>();
 
     private List<String> img=new ArrayList<>();
+
+    private List<String> key=new ArrayList<>();
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
     RelativeLayout nodata ;
@@ -64,10 +66,11 @@ public class CategoryFragment extends Fragment {
 
              name.add(category.getName());
              img.add(category.getImage());
+             key.add(dataSnapshot1.getKey());
 
        }
 
-             adapter = new CategoryAdapter(getActivity().getApplicationContext(), CategoryFragment.this,name,img);
+             adapter = new CategoryAdapter(getActivity().getApplicationContext(), CategoryFragment.this,name,img,key);
 
              linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 

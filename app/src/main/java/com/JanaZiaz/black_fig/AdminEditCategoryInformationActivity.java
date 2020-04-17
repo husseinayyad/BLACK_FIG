@@ -10,41 +10,30 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.JanaZiaz.black_fig.Model.Category;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 
-public class AddRecipesActivity extends AppCompatActivity {
- //   private List<String> name=new ArrayList<>();
-    List<String> name = new ArrayList<String>();
-    List<String> key = new ArrayList<String>();
+public class AdminEditCategoryInformationActivity extends AppCompatActivity {
     ImageView imageView ;
     Button add ;
-    EditText name1 ,time ,Ingredients;
+    EditText name ;
     DatabaseReference databaseReference;
     private StorageReference storageReference;
     private ProgressDialog loadingBar;
@@ -54,47 +43,16 @@ public class AddRecipesActivity extends AppCompatActivity {
     private static final int galaryn = 1;
     private Uri imageuri;
     String savedata, savetime, id, imgurl;
-    String category= "";
-        String keytxt="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_recipes);
-        final Spinner spin =  findViewById(R.id.sp1);
-
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("category");
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
-
-
-                    for (DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
-                        Category category= dataSnapshot1.getValue(Category.class);
-
-
-                       name.add(category.getName());
-                      key.add(dataSnapshot1.getKey());
-
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        setContentView(R.layout.activity_admin_edit_category_information);
         imageView=findViewById(R.id.imgcatg);
         add=findViewById(R.id.btnAddCatg);
-        name1=findViewById(R.id.recipename);
-        time=findViewById(R.id.time);
-        Ingredients=findViewById(R.id.Ingredients);
+        name=findViewById(R.id.categoryname);
         loadingBar = new ProgressDialog(this);
         storageReference = FirebaseStorage.getInstance().getReference().child("image");
-        databaseReference = FirebaseDatabase.getInstance().getReference("recipes");
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,25 +65,17 @@ public class AddRecipesActivity extends AppCompatActivity {
                 validaadata();
             }
         });
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.select_dialog_item, name);
-        dataAdapter.setDropDownViewResource(R.layout.layout_spinner_item);
-        spin.setAdapter(dataAdapter);
-        //Creating the ArrayAdapter instance having the country list
+        final String nametxt = getIntent().getStringExtra("name");
+        final String img = getIntent().getStringExtra("img");
 
-        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                category=parent.getItemAtPosition(position).toString();
-                keytxt=key.get(position);
-            }
+        String key=getIntent().getStringExtra("key");
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
+        name.setText(nametxt);
+        Picasso.get().load(img).into(imageView);
+        databaseReference = FirebaseDatabase.getInstance().getReference("category").child(key);
     }
+
     private void opengallry() {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -146,31 +96,26 @@ public class AddRecipesActivity extends AppCompatActivity {
     private void validaadata() {
 
 
-        if (TextUtils.isEmpty(name1.getText().toString())  ) {
+        if (TextUtils.isEmpty(name.getText().toString())  ) {
             Toast.makeText(this, "Please Enter Category Name", Toast.LENGTH_LONG).show();
 
         }
-        else if (imageuri==null){
-            Toast.makeText(this, "Please Chose Image", Toast.LENGTH_LONG).show();
-        }
-        else if (TextUtils.isEmpty(time.getText().toString())){
-            Toast.makeText(this, "lease Enter  Time", Toast.LENGTH_LONG).show();
-        }
-        else if (TextUtils.isEmpty(Ingredients.getText().toString())){
-            Toast.makeText(this, "Please Enter  Ingredients ", Toast.LENGTH_LONG).show();
-        }
-        else if (TextUtils.isEmpty(category)){
-            Toast.makeText(this, "Please Select Recipes Category", Toast.LENGTH_LONG).show();
-        }
+
         else {
-            saveimage();
+            if (imageuri==null){
+savedataintodatabase();
+            }
+            else {
+                saveimage();
+            }
+
         }
     }
 
     private void saveimage() {
 
 
-        loadingBar.setTitle("Add Recipes");
+        loadingBar.setTitle("Edit Category");
         loadingBar.setMessage("Wait.... ");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
@@ -183,7 +128,7 @@ public class AddRecipesActivity extends AppCompatActivity {
         savetime = dateFormat1.format(calendar.getTime());
         id = savedata + savetime;
 
-        final StorageReference filepath = storageReference.child("img2" + id + ".jpg");
+        final StorageReference filepath = storageReference.child("img" + id + ".jpg");
         final UploadTask uploadTask = filepath.putFile(imageuri);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
@@ -214,7 +159,7 @@ public class AddRecipesActivity extends AppCompatActivity {
                             imgurl = task.getResult().toString();
 
                             Toast.makeText(getApplication(), "  image save to database", Toast.LENGTH_LONG).show();
-                            savedatadatabase();
+                            savedataintodatabase();
                         }
                     }
                 });
@@ -224,27 +169,25 @@ public class AddRecipesActivity extends AppCompatActivity {
 
     }
 
-
-    private void savedatadatabase() {
+    private void savedataintodatabase() {
 
 
 
 
         final HashMap<String, Object> objectHashMap = new HashMap<>();
-        objectHashMap.put("id", category);
+        objectHashMap.put("id", name.getText().toString());
         objectHashMap.put("data", savedata);
-        objectHashMap.put("time", time.getText().toString());
-        objectHashMap.put("ingredients",Ingredients.getText().toString());
+        objectHashMap.put("time", savetime);
 
 
 
-        objectHashMap.put("name", name1.getText().toString());
+        objectHashMap.put("name", name.getText().toString());
+if (imageuri!=null) {
+    objectHashMap.put("image", imgurl);
+}
 
-        objectHashMap.put("image", imgurl);
 
-
-
-        databaseReference.child(keytxt).push().setValue(objectHashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.updateChildren(objectHashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
@@ -265,6 +208,6 @@ public class AddRecipesActivity extends AppCompatActivity {
 
 
 
-    }
 
+    }
 }

@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.JanaZiaz.AdminEditCategoryActivity;
 import com.JanaZiaz.black_fig.ui.category.CategoryFragment;
 
 public class AdminPageActivity extends AppCompatActivity {
-Button  Category ,recipes;
+Button  Category ,recipes,Management;
 String admin;
 TextView name ;
 ImageView imageView;
@@ -27,7 +28,7 @@ Category=findViewById(R.id.btncatg);
 recipes=findViewById(R.id.btnrecipe);
 name=findViewById(R.id.adminname);
 imageView=findViewById(R.id.adminimage);
-
+Management=findViewById(R.id.btnmang);
 admin=getIntent().getStringExtra("admin");
 if (admin.equals("1")){
     name.setText("Admin : Dana Hazem");
@@ -35,18 +36,25 @@ if (admin.equals("1")){
     imageView.setImageResource(R.drawable.appicon2);
 
 }
+        Management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), AdminEditCategoryActivity.class));
+            }
+        });
 Category.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         startActivity(new Intent(getApplicationContext(),AddCategoryActivity.class));
     }
 });
-recipes.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        startActivity(new Intent(getApplicationContext(),AddRecipesActivity.class));
-    }
-});
+
+        recipes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),AddRecipesActivity.class));
+            }
+        });
     }
 
     @Override
