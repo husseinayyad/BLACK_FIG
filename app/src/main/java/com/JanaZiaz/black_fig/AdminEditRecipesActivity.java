@@ -38,6 +38,13 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
     private List<String> time=new ArrayList<>();
     private List<String> ing=new ArrayList<>();
     private List<String> keys=new ArrayList<>();
+    List<String> name1=new ArrayList<>();
+    String searchtext="";
+    List<String> idlist1=new ArrayList<>();
+    List<String> img1=new ArrayList<>();
+    List<String> time1=new ArrayList<>();
+    List<String> ing1=new ArrayList<>();
+    List<String> keys1=new ArrayList<>();
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
     SearchView searchView ;
@@ -69,6 +76,9 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
                         isbyname=true;
                         isbying=false;
                         searchView.setQueryHint("By Name");
+                        if (!searchView.getQuery().toString().isEmpty()){
+                            searchView.setQuery(searchtext+" ",false);
+                        }
                         dialog.dismiss();
                     }
                 });
@@ -78,6 +88,9 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
                         isbyname=false;
                         isbying=true;
                         dialog.dismiss();
+                        if (!searchView.getQuery().toString().isEmpty()){
+                            searchView.setQuery(searchtext+" ",false);
+                        }
                         searchView.setQueryHint("By Ingredients");
                     }
                 });
@@ -98,6 +111,7 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
 
 // do something when text changes
                 if (!newText.isEmpty()){
+                    searchtext=newText;
                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("recipes").child(id);
                     mDatabase.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -111,7 +125,7 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
                                 keys.clear();
                                 for (DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                                     recipes recipes= dataSnapshot1.getValue( recipes.class);
-
+                                    nodata.setVisibility(View.GONE);
 
                                     name.add(recipes.getName());
                                     img.add(recipes.getImage());
@@ -122,78 +136,82 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
 
                                 }
                                 if (isbying){
+                                    name1.clear();
+                                    img1.clear();
+                                    idlist1.clear();
+                                    time1.clear();
+                                    ing1.clear();
                                     for(int i = 0 ;i<ing.size();i++)
                                     {
                                         if(ing.get(i).toLowerCase().trim().contains(newText.toLowerCase().trim())){
-                                            List<String> name1=new ArrayList<>();
-
-                                            List<String> idlist1=new ArrayList<>();
-                                            List<String> img1=new ArrayList<>();
-                                            List<String> time1=new ArrayList<>();
-                                            List<String> ing1=new ArrayList<>();
-                                            List<String> keys1=new ArrayList<>();
+                                            nodata.setVisibility(View.GONE);
                                             name1.add(name.get(i));
                                             img1.add(img.get(i));
                                             idlist1.add(idlist.get(i));
                                             time1.add(time.get(i));
                                             ing1.add(ing.get(i));
                                           keys1.add(keys.get(i));
-                                            adapter = new RecipesAdminAdapter(getApplicationContext(), AdminEditRecipesActivity.this,name1,img1,idlist1,time1,ing1,keys1,"");
 
-                                            linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-
-
-                                            dividerItemDecoration = new DividerItemDecoration(getApplicationContext(), linearLayoutManager.getOrientation());
-
-                                            recyclerView.setHasFixedSize(true);
-                                            recyclerView .setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
-                                            recyclerView.addItemDecoration(dividerItemDecoration);
-                                            recyclerView.setAdapter(adapter);
                                         }
                                         else {
-
+                                          //  nodata.setVisibility(View.VISIBLE);
                                         }
 
-
+                                        if (name1.isEmpty()){
+                                            nodata.setVisibility(View.VISIBLE);
+                                        }
                                     }
+                                    adapter = new RecipesAdminAdapter(getApplicationContext(), AdminEditRecipesActivity.this,name1,img1,idlist1,time1,ing1,keys1,"");
+
+                                    linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+
+
+                                    dividerItemDecoration = new DividerItemDecoration(getApplicationContext(), linearLayoutManager.getOrientation());
+
+                                    recyclerView.setHasFixedSize(true);
+                                    recyclerView .setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
+                                    recyclerView.addItemDecoration(dividerItemDecoration);
+                                    recyclerView.setAdapter(adapter);
 
                                 }
 
                                 else {
+                                    name1.clear();
+                                    img1.clear();
+                                    idlist1.clear();
+                                    time1.clear();
+                                    ing1.clear();
                                     for(int i = 0 ;i<name.size();i++)
                                     {
                                         if(name.get(i).toLowerCase().trim().contains(newText.toLowerCase().trim())){
-                                            List<String> name1=new ArrayList<>();
-
-                                            List<String> idlist1=new ArrayList<>();
-                                            List<String> img1=new ArrayList<>();
-                                            List<String> time1=new ArrayList<>();
-                                            List<String> ing1=new ArrayList<>();
-                                            List<String> keys1=new ArrayList<>();
+                                            nodata.setVisibility(View.GONE);
                                             name1.add(name.get(i));
                                             img1.add(img.get(i));
                                             idlist1.add(idlist.get(i));
                                             time1.add(time.get(i));
                                             ing1.add(ing.get(i));
                                             keys1.add(keys.get(i));
-                                            adapter = new RecipesAdminAdapter(getApplicationContext(), AdminEditRecipesActivity.this,name1,img1,idlist1,time1,ing1,keys1,"");
 
-                                            linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-
-
-                                            dividerItemDecoration = new DividerItemDecoration(getApplicationContext(), linearLayoutManager.getOrientation());
-
-                                            recyclerView.setHasFixedSize(true);
-                                            recyclerView .setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
-                                            recyclerView.addItemDecoration(dividerItemDecoration);
-                                            recyclerView.setAdapter(adapter);
                                         }
                                         else {
-
+                                           // nodata.setVisibility(View.VISIBLE);
                                         }
 
-
+                                        if (name1.isEmpty()){
+                                            nodata.setVisibility(View.VISIBLE);
+                                        }
                                     }
+                                    adapter = new RecipesAdminAdapter(getApplicationContext(), AdminEditRecipesActivity.this,name1,img1,idlist1,time1,ing1,keys1,"");
+
+                                    linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+
+
+                                    dividerItemDecoration = new DividerItemDecoration(getApplicationContext(), linearLayoutManager.getOrientation());
+
+                                    recyclerView.setHasFixedSize(true);
+                                    recyclerView .setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
+                                    recyclerView.addItemDecoration(dividerItemDecoration);
+                                    recyclerView.setAdapter(adapter);
                                 }
                             }
                             else {
@@ -223,7 +241,7 @@ public class AdminEditRecipesActivity extends AppCompatActivity {
                                 for (DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                                     recipes recipes= dataSnapshot1.getValue( recipes.class);
 
-
+                                    nodata.setVisibility(View.GONE);
                                     name.add(recipes.getName());
                                     img.add(recipes.getImage());
                                     idlist.add(recipes.getId());

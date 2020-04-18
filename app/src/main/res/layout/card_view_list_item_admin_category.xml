@@ -34,16 +34,7 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/remove"
                 android:layout_height="50dp"></ImageView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:id="@+id/cardViewTextView"
-                android:textSize="13dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="EX"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"/>
+
         </RelativeLayout>
 
         <ImageView
@@ -53,7 +44,16 @@
             android:scaleType="fitXY"
             android:id="@+id/cardViewImageView"/>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/cardViewTextView"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="EX"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 
