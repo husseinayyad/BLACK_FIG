@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "528267214601",
-    "firebase_url": "https://blackfig-66a29.firebaseio.com",
-    "project_id": "blackfig-66a29",
-    "storage_bucket": "blackfig-66a29.appspot.com"
+    "project_number": "356626592814",
+    "firebase_url": "https://black-fig-default-rtdb.firebaseio.com",
+    "project_id": "black-fig",
+    "storage_bucket": "black-fig.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:528267214601:android:3283b4526194c674181dd8",
+        "mobilesdk_app_id": "1:356626592814:android:8ee371d78b04a9e2321bbf",
         "android_client_info": {
-          "package_name": "com.JanaZiaz.black_fig"
+          "package_name": "com.task.black_fig"
         }
       },
       "oauth_client": [
         {
-          "client_id": "528267214601-7kjb0vbcc62qa44f53jcc5qq6okkl9q4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.JanaZiaz.black_fig",
-            "certificate_hash": "093e1276998f31d6acfc0a62b80b11110e1c0f4b"
-          }
-        },
-        {
-          "client_id": "528267214601-ibpar4doug8anai46vh0i263avur91o4.apps.googleusercontent.com",
+          "client_id": "356626592814-qjv8u5fso6qj6406qdpfn5bvoafqlh8q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBwASXTYJ78rjo3Pa3pJ15bGQdFCc5L1uE"
+          "current_key": "AIzaSyBe2GdnVprT3B63SSb9Ht6MIOCpwsPhtZ4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "528267214601-ibpar4doug8anai46vh0i263avur91o4.apps.googleusercontent.com",
+              "client_id": "356626592814-qjv8u5fso6qj6406qdpfn5bvoafqlh8q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

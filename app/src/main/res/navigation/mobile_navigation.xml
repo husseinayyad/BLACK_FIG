@@ -7,37 +7,37 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.JanaZiaz.black_fig.ui.category.CategoryFragment"
+        android:name="com.task.black_fig.ui.category.CategoryFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_category" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.JanaZiaz.black_fig.ui.admin.AdminFragment"
+        android:name="com.task.black_fig.ui.admin.AdminFragment"
         android:label="Admin"
         tools:layout="@layout/fragment_admin" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.JanaZiaz.black_fig.ui.Privacy.PrivacyFragment"
+        android:name="com.task.black_fig.ui.Privacy.PrivacyFragment"
         android:label="Privacy Policy"
         tools:layout="@layout/fragment_privacy" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.JanaZiaz.black_fig.ui.terms.TermsFragment"
+        android:name="com.task.black_fig.ui.terms.TermsFragment"
         android:label="Terms &amp; Conditions"
         tools:layout="@layout/fragment_terms" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.JanaZiaz.black_fig.ui.share.ShareFragment"
+        android:name="com.task.black_fig.ui.share.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.JanaZiaz.black_fig.ui.feedback.FeedBackFragment"
+        android:name="com.task.black_fig.ui.feedback.FeedBackFragment"
         android:label="FeedBack"
         tools:layout="@layout/fragment_feedback" />
 </navigation>

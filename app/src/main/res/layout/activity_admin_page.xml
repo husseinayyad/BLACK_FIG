@@ -38,7 +38,7 @@ android:id="@+id/adminimage"
     </androidx.cardview.widget.CardView>
     <TextView
         android:layout_width="wrap_content"
-        android:text="Admin :Jana Ziad"
+        android:text="Admin :Omar"
         android:padding="10dp"
 android:layout_marginBottom="10dp"
 android:id="@+id/adminname"
